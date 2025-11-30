@@ -13,14 +13,22 @@ app.get("/", (req, res) => {
 const users = [
   { id: 1, name: "nikel", email: "nikel@ali.com" },
   { id: 2, name: "nikel", email: "nikel@ali.com" },
-  { id: 3, name: "nikel", email: "nikel@ali.com" },
-  { id: 4, name: "nikel", email: "nikel@ali.com" },
+ 
+
 ];
 
 app.get("/users", (req, res) => {
   res.send(users);
 });
 
+app.post('/users',(req,res)=>{
+  const newusers=req.body;
+  newusers.id=users.length+1;
+  users.push(newusers);
+  res.send(newusers
+
+  )
+})
 app.listen(port, (req, res) => {
   console.log(`express app listening on ${port}`);
 });
